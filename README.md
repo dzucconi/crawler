@@ -1,5 +1,7 @@
 # Crawler
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/61a94bef-79c2-457b-b3f8-1bc5360f8d3e/deploy-status)](https://app.netlify.com/sites/damonzucconi-crawler/deploys)
+
 ## Meta
 
 - **State**: production
