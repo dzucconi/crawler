@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "debounce": "1.2.1",
-    "qs": "6.9.6",
+    "qs": "6.10.0",
     "queryparams": "0.1.0"
   }
 }
