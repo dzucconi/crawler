@@ -15,7 +15,7 @@
   "devDependencies": {
     "@babel/core": "7.17.8",
     "babel-preset-es2015": "6.24.1",
-    "parcel": "1.12.4"
+    "parcel": "2.3.2"
   },
   "dependencies": {
     "debounce": "1.2.1",
