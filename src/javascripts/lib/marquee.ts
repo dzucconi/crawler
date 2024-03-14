@@ -1,11 +1,17 @@
-export default class Marquee {
-  constructor(text, speed) {
+export class Marquee {
+  text: string;
+  speed: number;
+  pool: HTMLElement[];
+  el: HTMLElement;
+  destroyed = false;
+
+  constructor(text: string, speed: string | number) {
     this.text = text;
-    this.speed = parseFloat(speed || 1);
+    this.speed = parseFloat(`${speed}` || "1");
     this.pool = [];
   }
 
-  render(size, ratio = 2) {
+  render(size: number, ratio = 2) {
     this.el = document.createElement("DIV");
     this.el.className = "marquee";
 
@@ -25,7 +31,7 @@ export default class Marquee {
   }
 
   queue() {
-    return new Promise((resolve) => {
+    return new Promise<void>((resolve) => {
       const el = this.pool.pop() || this.segment();
 
       const bounds = -el.offsetWidth;
@@ -57,7 +63,7 @@ export default class Marquee {
     this.queue().then(() => this.run());
   }
 
-  destroy(parent) {
+  destroy(parent: HTMLElement) {
     if (this.destroyed) return;
     parent.removeChild(this.el);
     this.destroyed = true;

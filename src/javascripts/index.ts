@@ -1,15 +1,18 @@
-import parameters from "queryparams";
+import { configure } from "queryparams";
 import debounce from "debounce";
-import Marquee from "./lib/marquee";
-import height from "./lib/height";
+import { Marquee } from "./lib/marquee";
+import { height } from "./lib/height";
 
 const DOM = {
-  app: document.getElementById("app"),
+  app: document.getElementById("app")!,
 };
 
-window.parameters = parameters;
-
-const { text, ratio } = parameters({
+const {
+  params: { text, ratio },
+} = configure<{
+  text: [string, number][];
+  ratio: number;
+}>({
   ratio: 2,
   text: [
     ["fastest", 7],
@@ -22,7 +25,7 @@ const { text, ratio } = parameters({
   ],
 });
 
-let marquees = [];
+let marquees: Marquee[] = [];
 
 const init = () => {
   marquees = text.map(([message, speed]) => new Marquee(message, speed));

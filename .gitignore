@@ -23,6 +23,7 @@ Thumbs.db
 node_modules/
 
 # Artifacts
+.parcel-cache/
 dist/
 
 # Secrets
